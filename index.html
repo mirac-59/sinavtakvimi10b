@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahi Evran 10/B Sınav Takvimi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            padding-top: 30px;
+            margin: 0;
+            user-select: none;
+        }
+
+        .tab-konteynir {
+            width: 95%;
+            max-width: 760px;
+            background: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        /* Üst Menü Butonları */
+        .tab-butonlar {
+            display: flex;
+            gap: 5px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            overflow-x: auto; /* Mobilde yana kayması için */
+            scrollbar-width: thin;
+        }
+
+        .tab-link {
+            padding: 12px 18px;
+            border: none;
+            background: #f8f9fa;
+            cursor: pointer;
+            font-weight: bold;
+            color: #7f8c8d;
+            border-radius: 8px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .tab-link:hover {
+            background: #e9ecef;
+        }
+
+        .tab-link.aktif {
+            background: #3498db;
+            color: white;
+        }
+
+        /* İçerik Alanı */
+        .tab-icerik {
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-icerik.aktif {
+            display: block;
+        }
+
+        .sinav-kart {
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            background: #fcfcfc;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .sinav-kart h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .sinav-kart p {
+            margin: 5px 0 0;
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    
+
+<div class="tab-konteynir">
+    <h1>10/B SINAV TAKVİMİ</h1>
+
+    <div class="tab-butonlar">
+        <button class="tab-link aktif" onclick="sekmeDegistir(event, 'm30')">30 MART</button>
+        <button class="tab-link" onclick="sekmeDegistir(event, 'm31')">31 MART</button>
+        <button class="tab-link" onclick="sekmeDegistir(event, 'n1')">1 NİSAN</button>
+        <button class="tab-link" onclick="sekmeDegistir(event, 'n2')">2 NİSAN</button>
+        <button class="tab-link" onclick="sekmeDegistir(event, 'n3')">3 NİSAN</button>
+        <button class="tab-link" onclick="sekmeDegistir(event, 'n6')">6 NİSAN</button>
+        <button class="tab-link" onclick="sekmeDegistir(event, 'n8')">8 NİSAN</button>
+        <button class="tab-link" onclick="sekmeDegistir(event, 'n9')">9 NİSAN</button>
+    </div>
+
+    <div id="m30" class="tab-icerik aktif">
+        <div class="sinav-kart"><h3>DİN KÜLTÜRÜ VE AHLAK</h3><p>5. DERS</p></div>
+    </div>
+
+    <div id="m31" class="tab-icerik">
+        <div class="sinav-kart"><h3>TARİH</h3><p>3. DERS</p></div>
+        <div class="sinav-kart" style="border-left-color: #e67e22;"><h3>TEMEL DİNİ BİLGİLER</h3><p>6. DERS</p></div>
+    </div>
+
+    <div id="n1" class="tab-icerik">
+        <div class="sinav-kart"><h3>FİZİK</h3><p>3. DERS</p></div>
+        <div class="sinav-kart" style="border-left-color: #9b59b6;"><h3>İNGİLİZCE</h3><p>5. DERS</p></div>
+    </div>
+
+    <div id="n2" class="tab-icerik">
+        <div class="sinav-kart"><h3>KİMYA</h3><p>3. DERS</p></div>
+        <div class="sinav-kart" style="border-left-color: #1abc9c;"><h3>COĞRAFYA</h3><p>5. DERS</p></div>
+    </div>
+
+    <div id="n3" class="tab-icerik">
+        <div class="sinav-kart"><h3>BİYOLOJİ</h3><p>3. DERS</p></div>
+    </div>
+
+    <div id="n6" class="tab-icerik">
+        <div class="sinav-kart"><h3>SEÇMELİ PROJE UYGULAMALARI</h3><p>5. DERS</p></div>
+        <div class="sinav-kart" style="border-left-color: #1abc9c;"><h3>FELSEFE</h3><p>7. DERS</p></div>
+    </div>
+
+    <div id="n8" class="tab-icerik">
+        <div class="sinav-kart" style="border-left-color: #2980b9;">
+            <h3>MATEMATİK</h3>
+            <p>3. DERS</p>
+        </div>
+    </div>
+
+    <div id="n9" class="tab-icerik">
+        <div class="sinav-kart" style="border-left-color: #e74c3c;">
+            <h3>TÜRK DİLİ VE EDEBİYATI</h3>
+            <p>3. DERS</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function sekmeDegistir(evt, gunId) {
+        var i, tabIcerik, tabLinkler;
+        tabIcerik = document.getElementsByClassName("tab-icerik");
+        for (i = 0; i < tabIcerik.length; i++) {
+            tabIcerik[i].classList.remove("aktif");
+        }
+        tabLinkler = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tabLinkler.length; i++) {
+            tabLinkler[i].classList.remove("aktif");
+        }
+        document.getElementById(gunId).classList.add("aktif");
+        evt.currentTarget.classList.add("aktif");
+    }
+</script>
+
+</body>
+</html>
