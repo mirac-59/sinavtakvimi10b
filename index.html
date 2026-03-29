@@ -2,73 +2,80 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ahi Evran 10/B Sınav Takvimi</title>
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #353535;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a; /* Daha koyu modern bir arka plan */
             display: flex;
             justify-content: center;
-            padding-top: 30px;
+            padding: 15px 10px;
             margin: 0;
             user-select: none;
+            color: #fff;
         }
 
         .tab-konteynir {
-            width: 95%;
-            max-width: 760px;
-            background: rgb(35, 35, 35);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+            background: #232323;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         h1 {
             text-align: center;
             color: #FFFFFF;
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #3498db;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
             padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Üst Menü Butonları */
+        /* Üst Menü Butonları - Mobilde Kaydırılabilir */
         .tab-butonlar {
             display: flex;
-            gap: 5px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            overflow-x: auto; /* Mobilde yana kayması için */
-            scrollbar-width: thin;
+            gap: 8px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 12px;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none; /* Firefox için gizle */
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tab-butonlar::-webkit-scrollbar {
+            display: none; /* Chrome/Safari için gizle */
         }
 
         .tab-link {
-            padding: 12px 18px;
+            padding: 10px 16px;
             border: none;
-            background: #f8f9fa;
+            background: #333;
             cursor: pointer;
             font-weight: bold;
-            color: #000000;
-            border-radius: 8px;
-            transition: 0.3s;
-            white-space: nowrap;
-        }
-
-        .tab-link:hover {
-            background: #e9ecef;
+            font-size: 0.85rem;
+            color: #bbb;
+            border-radius: 6px;
+            transition: 0.2s;
+            flex-shrink: 0;
         }
 
         .tab-link.aktif {
             background: #3498db;
             color: white;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
         }
 
         /* İçerik Alanı */
         .tab-icerik {
             display: none;
-            padding: 20px;
-            animation: fadeIn 0.4s ease;
+            padding-top: 15px;
+            animation: fadeIn 0.3s ease-out;
         }
 
         .tab-icerik.aktif {
@@ -76,53 +83,72 @@
         }
 
         .sinav-kart {
-            border-left: 5px solid #3498db;
-            padding: 15px;
-            background: #727272;
-            border-radius: 0 10px 10px 0;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            border-left: 4px solid #3498db;
+            padding: 12px;
+            background: #333;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 12px;
         }
 
         .sinav-kart h3 {
             margin: 0;
-            color: #ffffff;
-            font-size: 1.1rem;
-            -webkit-text-stroke: 0.1px black;
+            color: #fff;
+            font-size: 1rem;
         }
 
         .sinav-kart p {
-            margin: 5px 0 0;
+            margin: 4px 0 0;
+            font-size: 0.9rem;
+            color: #3498db;
             font-weight: bold;
-            color: #00ff2f;
         }
 
-        .konular {
+        .konu-baslik {
             text-align: center;
-            color: white;
+            font-size: 0.9rem;
+            margin: 10px 0;
+            color: #aaa;
+            border-top: 1px solid #444;
+            padding-top: 10px;
         }
-        .konular li {
+
+        .konular-liste {
+            background: #000;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 0;
             list-style: none;
-            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .konular-liste li {
+            font-size: 0.85rem;
             font-weight: bold;
+            padding: 5px 0;
+            border-bottom: 1px solid #222;
+            color: #eee;
         }
-        
-        .konular ul {
-            background-color: black;
-            border-radius: 10px;
+
+        .konular-liste li:last-child {
+            border-bottom: none;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(5px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.1rem; }
+            .tab-link { padding: 8px 12px; font-size: 0.8rem; }
+            .sinav-kart h3 { font-size: 0.95rem; }
         }
     </style>
 </head>
 <body>
-    
 
 <div class="tab-konteynir">
-    <h1>10/B SINAV TAKVİMİ</h1>
+    <h1>10/B Sınav Takvimi</h1>
 
     <div class="tab-butonlar">
         <button class="tab-link aktif" onclick="sekmeDegistir(event, 'm30')">30 MART</button>
@@ -139,17 +165,14 @@
         <div class="sinav-kart">
             <h3>DİN KÜLTÜRÜ VE AHLAK</h3>
             <p>5. DERS</p>
-            <h2>KONULAR</h2>
-            <hr>
-            <div class="konular">
-                <ul>
-                    <li>99'dan itibaren çalış</li>
-                    <li>tevhit ilkesi Sayfa : 82</li>
-                    <li>Mavi kutuya Çalış : 84</li> 
-                    <li>ilkelerden kendi ezberlediğimiz 5 tanesini yazacağız Sayfa : 88-89</li>
-                    <li>veda hutbesine çalış Sayfa : 94</li>
-                </ul>
-            </div>
+            <div class="konu-baslik">KONULAR</div>
+            <ul class="konular-liste">
+                <li>99'dan itibaren çalış</li>
+                <li>Tevhit ilkesi (Sayfa: 82)</li>
+                <li>Mavi kutuya çalış (Sayfa: 84)</li> 
+                <li>Ezberlenen 5 ilke (Sayfa: 88-89)</li>
+                <li>Veda Hutbesi (Sayfa: 94)</li>
+            </ul>
         </div>
     </div>
 
@@ -173,22 +196,16 @@
     </div>
 
     <div id="n6" class="tab-icerik">
-        <div class="sinav-kart"><h3>SEÇMELİ PROJE UYGULAMALARI</h3><p>5. DERS</p></div>
+        <div class="sinav-kart"><h3>SEÇMELİ PROJE</h3><p>5. DERS</p></div>
         <div class="sinav-kart" style="border-left-color: #1abc9c;"><h3>FELSEFE</h3><p>7. DERS</p></div>
     </div>
 
     <div id="n8" class="tab-icerik">
-        <div class="sinav-kart" style="border-left-color: #2980b9;">
-            <h3>MATEMATİK</h3>
-            <p>3. DERS</p>
-        </div>
+        <div class="sinav-kart" style="border-left-color: #2980b9;"><h3>MATEMATİK</h3><p>3. DERS</p></div>
     </div>
 
     <div id="n9" class="tab-icerik">
-        <div class="sinav-kart" style="border-left-color: #e74c3c;">
-            <h3>TÜRK DİLİ VE EDEBİYATI</h3>
-            <p>3. DERS</p>
-        </div>
+        <div class="sinav-kart" style="border-left-color: #e74c3c;"><h3>EDEBİYAT</h3><p>3. DERS</p></div>
     </div>
 
 </div>
@@ -206,6 +223,9 @@
         }
         document.getElementById(gunId).classList.add("aktif");
         evt.currentTarget.classList.add("aktif");
+        
+        // Mobilde seçilen butonu ortala
+        evt.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     }
 </script>
 
