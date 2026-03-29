@@ -48,9 +48,6 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        .tab-butonlar::-webkit-scrollbar {
-            display: none; /* Chrome/Safari için gizle */
-        }
 
         .tab-link {
             padding: 10px 16px;
@@ -132,10 +129,73 @@
         .konular-liste li:last-child {
             border-bottom: none;
         }
+        
+        .saati {
+            text-align: center;
+        }
+        
+        .saati h3 {
+            animation: parla 3s ease-in-out infinite; 
+        }
+
+        .onemli {
+            border-bottom: none;
+            color: red;
+            font-size: 25px;
+            animation: onemli 3s infinite;
+        }
+
+        @keyframes onemli {
+            0% {
+                opacity: 0;
+                transform: scale(1);
+            }
+            25% {
+                opacity: 0.25;
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            75% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1);
+            }
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(5px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes parla {
+            0% {
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.25;
+            }
+            25% {
+                opacity: 0.50;
+            }
+            30% {
+                opacity: 0.75;
+            }
+            50% {
+                opacity: 1;
+            }
+            75% {
+                opacity: 0.75;
+            }
+            90% {
+                opacity: 0.50;
+            }
+            100% {
+                opacity: 0;
+            }
         }
 
         @media (max-width: 480px) {
@@ -166,6 +226,12 @@
         <div class="sinav-kart">
             <h3>DİN KÜLTÜRÜ VE AHLAK</h3>
             <p>5. DERS</p>
+            <hr>
+            <div class="saati">
+                <h2>SAAT</h2>
+                <h3>11:50</h3>
+            </div>
+
             <div class="konu-baslik">KONULAR</div>
             <ul class="konular-liste">
                 <li>99'dan itibaren çalış</li>
@@ -178,35 +244,123 @@
     </div>
 
     <div id="m31" class="tab-icerik">
-        <div class="sinav-kart"><h3>TARİH</h3><p>3. DERS</p></div>
-        <div class="sinav-kart" style="border-left-color: #e67e22;"><h3>TEMEL DİNİ BİLGİLER</h3><p>6. DERS</p></div>
+        <div class="sinav-kart">
+            <h3>TARİH</h3>
+            <p>3. DERS</p>
+            <hr>
+            <div class="saati">
+                <h2>SAAT</h2>
+                <h3>11:50</h3>
+            </div>
+        </div>
+        <div class="sinav-kart" style="border-left-color: #e67e22;">
+            <h3>TEMEL DİNİ BİLGİLER</h3>
+            <p>6. DERS</p>
+            <hr>
+            <div class="saati">
+                <h2>SAAT</h2>
+                <h3>14:10</h3>
+            </div>
+        </div>
     </div>
 
     <div id="n1" class="tab-icerik">
-        <div class="sinav-kart"><h3>FİZİK</h3><p>3. DERS</p></div>
-        <div class="sinav-kart" style="border-left-color: #9b59b6;"><h3>İNGİLİZCE</h3><p>5. DERS</p></div>
+        <div class="sinav-kart">
+            <h3>FİZİK</h3><p>3. DERS</p>
+            <hr>
+            <div class="saati">
+                <h2>SAAT</h2>
+                <h3>10:10</h3>
+            </div>
+        </div>
+        <div class="sinav-kart" style="border-left-color: #9b59b6;">
+            <h3>İNGİLİZCE</h3><p>5. DERS</p>
+            <hr>
+            <div class="saati">
+                <h2>SAAT</h2>
+                <h3>10  :50</h3>
+            </div>
+        </div>
     </div>
 
     <div id="n2" class="tab-icerik">
-        <div class="sinav-kart"><h3>KİMYA</h3><p>3. DERS</p></div>
-        <div class="sinav-kart" style="border-left-color: #1abc9c;"><h3>COĞRAFYA</h3><p>5. DERS</p></div>
+        <div class="sinav-kart">
+            <h3>KİMYA</h3>
+            <p>3. DERS</p>
+            <hr>
+            <div class="saati">
+                <h2>SAAT</h2>
+                <h3>10:10</h3>
+            </div>
+        </div>
+        <div class="sinav-kart" style="border-left-color: #1abc9c;">
+            <h3>COĞRAFYA</h3>
+            <p>5. DERS</p>
+            <hr>
+            <div class="saati">
+                <h2>SAAT</h2>
+                <h3>11:50</h3>
+            </div>
+        </div>
     </div>
 
     <div id="n3" class="tab-icerik">
-        <div class="sinav-kart"><h3>BİYOLOJİ</h3><p>3. DERS</p></div>
+        <div class="sinav-kart">
+            <h3>BİYOLOJİ</h3>
+            <p>3. DERS</p>
+            <hr>
+            <div class="saati">
+                <h2>SAAT</h2>
+                <h3>10:10</h3>
+            </div>
+        </div>
     </div>
 
     <div id="n6" class="tab-icerik">
-        <div class="sinav-kart"><h3>SEÇMELİ PROJE</h3><p>5. DERS</p></div>
-        <div class="sinav-kart" style="border-left-color: #1abc9c;"><h3>FELSEFE</h3><p>7. DERS</p></div>
+        <div class="sinav-kart">
+            <h3>SEÇMELİ PROJE</h3>
+            <p>5. DERS</p>
+            <hr>
+            <div class="saati">
+                <h2>SAAT</h2>
+                <h3>11:50</h3>
+            </div>
+        </div>
+        <div class="sinav-kart" style="border-left-color: #1abc9c;">
+            <h3>FELSEFE</h3>
+            <p>7. DERS</p>
+            <hr>
+            <div class="saati">
+                <h2>SAAT</h2>
+                <h3>14:10</h3>
+            </div>
+        </div>
     </div>
 
     <div id="n8" class="tab-icerik">
-        <div class="sinav-kart" style="border-left-color: #2980b9;"><h3>MATEMATİK</h3><p>3. DERS</p></div>
+        <div class="sinav-kart">
+            <h3>MATEMATİK</h3>
+            <p>3. DERS</p>
+            <hr>
+            <div class="saati">
+                <h2>SAAT</h2>
+                <h3>10:10</h3>
+                <h1 class="onemli">Ortak Sınav</h1>
+            </div>
+        </div>
     </div>
 
     <div id="n9" class="tab-icerik">
-        <div class="sinav-kart" style="border-left-color: #e74c3c;"><h3>EDEBİYAT</h3><p>3. DERS</p></div>
+        <div class="sinav-kart" style="border-left-color: #e74c3c;">
+            <h3>EDEBİYAT</h3>
+            <p>3. DERS</p>
+            <hr>
+            <div class="saati">
+                <h2>SAAT</h2>
+                <h3>10:10</h3>
+                <h1 class="onemli">Ortak Sınav !</h1>
+            </div>
+        </div>
     </div>
 
 </div>
