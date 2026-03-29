@@ -116,8 +116,14 @@
             margin: 0;
             list-style: none;
             text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-
+        
+        .konular-liste:hover {
+            transform: scale(1.03);
+        }
+        
         .konular-liste li {
             font-size: 0.85rem;
             font-weight: bold;
@@ -135,7 +141,7 @@
         }
         
         .saati h3 {
-            animation: parla 3s ease-in-out infinite; 
+            animation: parla 3s; 
         }
 
         .onemli {
@@ -144,6 +150,7 @@
             font-size: 25px;
             animation: onemli 3s infinite;
         }
+
 
         @keyframes onemli {
             0% {
