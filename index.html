@@ -49,7 +49,7 @@
             background: #f8f9fa;
             cursor: pointer;
             font-weight: bold;
-            color: #7f8c8d;
+            color: #000000;
             border-radius: 8px;
             transition: 0.3s;
             white-space: nowrap;
@@ -86,23 +86,35 @@
 
         .sinav-kart h3 {
             margin: 0;
-            color: #2c3e50;
+            color: #ffffff;
             font-size: 1.1rem;
+            -webkit-text-stroke: 01px black;
         }
 
         .sinav-kart p {
             margin: 5px 0 0;
             font-weight: bold;
-            color: #e67e22;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            color: #00ff2f;
         }
 
         .konular {
-            color: #FFFFFF;
+            text-align: center;
+            color: white;
+        }
+        .konular li {
+            list-style: none;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+        
+        .konular ul {
+            background-color: black;
+            border-radius: 10px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -130,11 +142,13 @@
             <h2>KONULAR</h2>
             <hr>
             <div class="konular">
-                <p>tevhit ilkesi Sayfa 82</p>
-                <p>mavi kutu Sayfa 84</p>
-                <p>ilkelerden kendi ezberlediğimiz 5 tanesini yazacağız Sayfa 88-89</p>
-                <p>veda hutbesine çalış Sayfa 94</p>
-                <p>Sayfa 99'dan itibaren çalış</p>
+                <ul>
+                    <li>99'dan itibaren çalış</li>
+                    <li>tevhit ilkesi Sayfa : 82</li>
+                    <li>Mavi kutuya Çalış : 84</li> 
+                    <li>ilkelerden kendi ezberlediğimiz 5 tanesini yazacağız Sayfa : 88-89</li>
+                    <li>veda hutbesine çalış Sayfa : 94</li>
+                </ul>
             </div>
         </div>
     </div>
